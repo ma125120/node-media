@@ -1,5 +1,12 @@
 import { createApp } from 'vue';
-import { App } from './App';
-import './style/index.css';
+import App from './App.vue';
+// import './style/index.less';
+import './style';
+import Element3 from 'element3';
+import Button from './components/button/index.vue';
+import Tag from './components/tag/index.vue';
 
-createApp(App).mount('#app');
+createApp(App)
+  .component(Button.name, Button)
+  .component(Tag.name, Tag)
+  .mount('#app');

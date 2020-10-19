@@ -28,4 +28,5 @@ export default {
       rewrite: path => path.replace(/^\/proxy/, ''),
     },
   },
+  outDir: resolve(__dirname, `../public/front`),
 };

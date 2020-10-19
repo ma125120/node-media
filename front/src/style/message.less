@@ -1,0 +1,39 @@
+.n-message {
+  position: fixed;
+  width: 40%;
+  max-width: 360px;
+  left: 50%;
+  padding: 15px 15px 15px 20px;
+  opacity: 0;
+  transform: translate(-50%, -100%);
+  border-radius: 4px;
+  transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+}
+.n-message__enter {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.n-message__content {
+  margin-left: 10px;
+}
+// @keyframes msg-enter {
+//   0% {
+//     opacity: 0;
+//     transform: translate(-50%, -100%);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translate(-50%, 0);
+//   }
+// }
+// @keyframes msg-leave {
+//   0% {
+//     opacity: 1;
+//     transform: translate(-50%, 0);
+//   }
+//   100% {
+//     opacity: 0;
+//     transform: translate(-50%, -100%);
+//   }
+// }

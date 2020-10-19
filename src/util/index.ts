@@ -21,7 +21,12 @@ export const mkdir = (path, options) =>
 
 export const getPath = (...args) =>
   resolve(__dirname, '../../', 'public', ...args);
-export const getUpload = (name, ...args) => getPath(`upload/${name}`, ...args);
+
+export const getUpload = (name, ...args) => {
+  const dest = getPath(`upload/${name}`, ...args)
+  mkdir(path.dirname(dest), {}).catch(err => err);
+  return dest
+};
 export const getVideoUpload = name => getUpload(`video/${name}`);
 
 export const getExecPath = name => {
@@ -33,12 +38,12 @@ export const getExecPath = name => {
   return execPath;
 };
 
-export const getAlias = name => {
+export const getAlias = (name, alias = '') => {
   const extname = path.extname(name);
   const basename = path.basename(name, extname);
 
   return {
-    newName: path.resolve(path.dirname(name), `${basename}_1${extname}`),
+    newName:  `${basename}_1${alias || ''}`, //path.resolve(path.dirname(name), `${basename}_1${alias || ''}`),
     extname,
     basename,
     filename: basename + extname,

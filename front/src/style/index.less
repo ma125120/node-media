@@ -1,0 +1,121 @@
+@import './message.less';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+body {
+  --success: #67c23a;
+  --info: #909399;
+  --warning: #e6a23c;
+  --error: #f56c6c;
+  --light: #409eff;
+
+  --success-bg: #f0f9eb;
+  --info-bg: #f4f4f5;
+  --warning-bg: #fdf6ec;
+  --error-bg: #fef0f0;
+  --light-bg: #ecf5ff;
+
+  // --text: #606266;
+  // --hover: #409eff;
+  // --hover-border: #c6e2ff;
+  // --hover-bg: #ecf5ff;
+  // --active: #3a8ee6;
+  // --active-border: #3a8ee6;
+}
+[class*='--success'] {
+  --bg: var(--success-bg);
+  --color: var(--success);
+}
+[class*='--info'] {
+  --bg: var(--info-bg);
+  --color: var(--info);
+}
+[class*='--warning'] {
+  --bg: var(--warning-bg);
+  --color: var(--warning);
+}
+[class*='--error'] {
+  --bg: var(--error-bg);
+  --color: var(--error);
+}
+[class*='--light'] {
+  --bg: var(--light-bg);
+  --color: var(--light);
+}
+.n-message,
+.n-tag {
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--color);
+}
+.n-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+}
+.n-tag + .n-tag {
+  margin-left: 10px;
+}
+
+.flex {
+  display: flex;
+}
+.flex-v-center {
+  align-items: center;
+}
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+#app {
+  margin: 30px;
+}
+.btn {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: 500;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+}
+
+.url-input {
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 15px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+}

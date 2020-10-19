@@ -7,10 +7,14 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "element-ui": "^2.13.2",
+    "element3": "^0.0.13",
     "vue": "^3.0.0-rc.1"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.2",
     "vite": "^1.0.0-rc.1"
   }
 }

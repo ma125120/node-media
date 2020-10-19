@@ -3,7 +3,7 @@
 /node_modules
 /public
 /front/node_modules
-
+yarn.lock
 # Logs
 logs
 *.log
