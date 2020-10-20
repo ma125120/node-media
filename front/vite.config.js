@@ -29,4 +29,6 @@ export default {
     },
   },
   outDir: resolve(__dirname, `../public/front`),
+  base: './',
+  // assetsDir: './_assets',
 };

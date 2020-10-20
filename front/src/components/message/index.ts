@@ -34,7 +34,7 @@ const Message: MessageType & any = function(options: MessageOptions) {
   container.innerHTML = `<div id="${options.id}" class="flex flex-v-center n-message n-message--${
     options.type
   } ${options.customClass || ''}" style="top: ${verticalOffset}px; z-index: ${options.zIndex}">
-    <i class="el-icon-${options.iconClass || options.type}"></i>
+    <i class="n-icon-${options.iconClass || options.type}"></i>
     <p class="n-message__content">${options.message || '信息'}</p>
   </div>`;
   const instance = {

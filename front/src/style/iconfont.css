@@ -1,12 +1,13 @@
 @font-face {
   font-family: element-icons;
-  src: url(https://element.eleme.io/static/element-icons.535877f.woff)
-      format('woff'),
-    url(https://element.eleme.io/static/element-icons.535877f.ttf)
-      format('truetype');
+  src: url(font/element-icons.535877f.woff) format('woff');
   font-weight: 400;
   font-display: 'auto';
   font-style: normal;
+}
+.n-pad-icon [class*=' n-icon-'],
+.n-pad-icon [class^='n-icon-'] {
+  margin-right: 4px;
 }
 [class*=' n-icon-'],
 [class^='n-icon-'] {
@@ -20,6 +21,7 @@
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 2px;
 }
 .n-icon-ice-cream-round:before {
   content: '\e6a0';
