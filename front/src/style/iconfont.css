@@ -21,7 +21,8 @@
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 2px;
+  position: relative;
+  top: 2px;
 }
 .n-icon-ice-cream-round:before {
   content: '\e6a0';

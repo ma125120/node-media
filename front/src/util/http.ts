@@ -1,9 +1,11 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import Message from '../components/message'
 
+export const baseURL = (process.env.NODE_ENV === `development` ? `/proxy` : ``) + '/api'
+
 const instance = axios.create({
   timeout: 60 * 1000 * 10,
-  baseURL: (process.env.NODE_ENV === `development` ? `/proxy` : ``) + '/api',
+  baseURL,
 });
 
 instance.interceptors.response.use(function (response) {

@@ -30,14 +30,18 @@ export class VideoService {
 
   async format(url: string) {
     await this.getInfo(url);
-    const newName = getVideoUpload(getAlias(url, '.mp4').newName)
-    const res = getHttpPath(newName);
-    if (isExist(newName)) {
+    const pathname = getVideoUpload(getAlias(url, '.mp4').newName)
+    const url1 = getHttpPath(pathname);
+    const res = {
+      url: url1,
+      pathname
+    }
+    if (isExist(pathname)) {
       return res;
     }
 
     await exec(
-      `ffmpeg -i ${url} -vcodec libx264 ${newName}`,
+      `ffmpeg -i ${url} -vcodec libx264 ${pathname}`,
       {
         cwd: getExecPath('ffmpeg'),
       },

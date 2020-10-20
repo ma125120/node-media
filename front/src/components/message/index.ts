@@ -48,7 +48,7 @@ const Message: MessageType & any = function(options: MessageOptions) {
   instances.push(instance);
   setTimeout(() => {
     instance.el.classList.add(`n-message__enter`)
-  })
+  }, 10)
   if (options.duration) {
     setTimeout(() => {
       instance.close();

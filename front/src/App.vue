@@ -12,8 +12,9 @@
       文件较大时，转码可能较慢，请耐心等待
     </div>
     <div class="area" v-if="downloadUrl">
-      <a :href="downloadUrl" class="download-link">{{downloadUrl}}</a>
-      <a :href="downloadUrl" class="n-button n-button--primary down-btn" download="1.mp4">点击即可访问</a>
+      <a :href="downloadUrl" target="__blank" class="download-link">{{downloadUrl}}</a>
+      <n-button @click="copyText" class="down-btn">复制</n-button>
+      <n-button type="primary" @click="download">下载</n-button>
     </div>
     <!-- <Child>{() => 'bar'}</Child> -->
   </div>
@@ -23,6 +24,7 @@
 import { computed, onMounted, reactive, toRefs } from 'vue';
 import { video } from './api';
 import Message from './components/message';
+import { copy, baseURL } from './util/index'
 
 export default {
   setup() {
@@ -32,6 +34,7 @@ export default {
       isValid: undefined,
       downloadUrl: '',
       loading: false,
+      pathname: '',
     });
     const getInfo = async () => {
       const res: any = await video.info({ url: state.url });
@@ -53,13 +56,23 @@ export default {
       state.loading = false
       if (!res) return ;
 
-      state.downloadUrl = res
+      state.downloadUrl = res.url
+      state.pathname = res.pathname
+    }
+    const copyText = () => {
+      copy(state.downloadUrl)
+      Message.success(`复制成功`)
+    }
+    const download = () => {
+      window.location.href = baseURL + `/video/download?pathname=${decodeURIComponent(state.pathname)}`
     }
 
     return {
       ...toRefs(state),
       getInfo,
       format,
+      copyText,
+      download,
     };
   },
 };

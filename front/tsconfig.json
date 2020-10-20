@@ -5,6 +5,7 @@
     // this enables stricter inference for data properties on `this`
     "strict": false,
     "jsx": "preserve",
+    "experimentalDecorators": true,
     "moduleResolution": "node"
   },
   "include": ["src"],

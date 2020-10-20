@@ -74,13 +74,15 @@ export const writeFile = (blob: ArrayBuffer, name: string) =>
 export enum ResourceType {
   video = 1,
   img = 2,
+  other = 3,
 }
 export const uploadDirObj = {
   [ResourceType.img]: `img`,
   [ResourceType.video]: `video`,
+  [ResourceType.other]: `other`,
 };
 
-export const donloadFromUrl = async (url: string, type = ResourceType.img) => {
+export const downloadFromUrl = async (url: string, type = ResourceType.img) => {
   const { data } = await axios.get<any>(url, { responseType: 'arraybuffer' });
   const dest = getUpload(uploadDirObj[type], getAlias(url).filename);
   await writeFile(data, dest);
@@ -103,3 +105,5 @@ export const getLocalHttp = () => {
 
   return `http://` + url + `:${process.env.PORT}`;
 };
+
+export const isSafePath = name => name.startsWith(ROOT)
